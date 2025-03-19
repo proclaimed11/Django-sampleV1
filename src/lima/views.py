@@ -13,6 +13,8 @@ def home_page_view(request, *args, **kwargs):
 
     title = "SaaS"
 
+    html_template= "home.html"
+    
     my_context = {
          "page_title": title,
          "page_visits_count": page_qs.count(),
@@ -23,8 +25,6 @@ def home_page_view(request, *args, **kwargs):
     # path = request.path
 
     # print("my_page_path",path)
-
-    html_template= "home.html"
 
     PageVisits.objects.create(path = request.path)
 

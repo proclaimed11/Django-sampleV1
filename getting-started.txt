@@ -1,0 +1,67 @@
+create a vscode workspace for your project(optional)
+    ~ File > Save Workspace as...
+
+create a requirements.txt file 
+    ~ inside place you installation requirements(optional)
+
+create an src folder where your main files will be placed (you can name this file however)
+
+its a proper practice to create a virtual env for your project so that the global dependencies may not conflict 
+with the project dependencies/libraries
+
+    ~ python -m venv virtual_env(folder name)
+
+enter virtual env with command 
+    ~ .\virtual_env(folder name)\Scripts\Activate.ps1
+
+install everything installed inside your requirements.txt
+    ~ pip install -r requirements.txt
+
+its a good practice to also update your pip often (optional)
+    ~ pip install pip --upgrade
+
+check if django is installed
+-Go to the src(main folder)
+    ~ cd src
+
+-Run the command
+    ~ django-admin  (you should get a list of command that can be run by this admin)
+
+Now we create our project
+    -while still inside the src 
+    ~django-admin startproject  projectname . (the period at the end is important to emphasize that the project should be created in the current directory)
+
+
+start the project by running in the same src directory
+    ~ python manage.py runserver
+
+===========================ADDING NEW APPS===================================================================
+
+After you have created a project you can create an app inside your project via the command
+    ~ python manage.py startapp app_name
+
+
+NB: The django-admin startproject  projectname . created a base project , but the apps are the 
+variety of services/micro-services found inside your project 
+ 
+ Eg: Base project(Loans and Savings app)
+     service/app- finances
+
+After adding creating an app you should add that app at the settings.py of the base project 
+inside the INSTALLED_APPS
+
+    ~INSTALLED_APPS=[
+        ....other apps
+
+       'app name' 
+    ]
+
+================================CREATING MODELS=========================================================
+
+After you create or update any models inside your apps you should run the command
+   ~ python manage.py makemigrations
+   
+   then propagate the changes to the db by:-
+
+   ~python manage.py migrate 
+

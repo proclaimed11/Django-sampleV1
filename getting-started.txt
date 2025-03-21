@@ -65,3 +65,8 @@ After you create or update any models inside your apps you should run the comman
 
    ~python manage.py migrate 
 
+
+   ========================DEPLOYMENT=======================================
+
+   to deploy this app go to https://youtu.be/WbNNESIxJnY?list=PLH_HAoohcW7lyEw3cpaK1dqKYA8RUSZuX or visit https://www.codingforentrepreneurs.com/blog/deploy-django-on-railway-with-this-dockerfile
+

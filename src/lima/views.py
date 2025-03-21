@@ -5,30 +5,42 @@ from visits.models import PageVisits
 
 this_dir = pathlib.Path(__file__).resolve().parent
 
-def home_page_view(request, *args, **kwargs):
+def home_view(request, *args, **kwargs):
+    return about_view(request, *args, **kwargs)
+
+
+
+def about_view(request, *args, **kwargs):
     queryset = PageVisits.objects.all()
-
     page_qs = PageVisits.objects.filter(path = request.path)
+
+    try:
+        percent = (page_qs.count()*100.0 / queryset.count())
+    except:
+        percent = 0
+
     print("the paths", request.path)
-
     title = "SaaS"
-
     html_template= "home.html"
-    
+
     my_context = {
          "page_title": title,
          "page_visits_count": page_qs.count(),
-         "percent": (page_qs.count()*100.0 / queryset.count()),
+         "percent": percent,
          "total_visits": queryset.count()
     }
 
-    # path = request.path
-
-    # print("my_page_path",path)
-
     PageVisits.objects.create(path = request.path)
-
     return render(request, html_template, my_context)
+
+
+
+
+
+
+
+
+
 
 
 

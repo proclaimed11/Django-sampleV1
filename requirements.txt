@@ -1,5 +1,7 @@
 Django==5.1.7
 gunicorn
-python-decouple
+python-decouple #Alternative to python-dotenv
+psycopg2[binary] #enable postgresql in the database backend
+dj-database-url
 
 

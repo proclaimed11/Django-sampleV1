@@ -29,7 +29,7 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "true" # in production mode set to false
-DEBUG = True
+DEBUG = False
 
 print("DEBUG", DEBUG, type(DEBUG))
 
